@@ -8,3 +8,6 @@ class Robot:
         self.active_weapon = Weapon
     def attack (self, dinosaur):
         pass
+
+
+Weapon('Phaser Gun', 60)
