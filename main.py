@@ -1,4 +1,3 @@
-from robot import Robot
-from .weapon import Weapon
+from battlefield import Battlefield
 
-print (f'The Robot took out its {Weapon}')
+main_battlefield = Battlefield()

@@ -1,13 +1,10 @@
-from email.base64mime import header_length
 from weapon import Weapon
 
 class Robot:
-    def __init__(self, name):
+    def __init__(self, name, health):
         self.name = name
-        self.health = int
-        self.active_weapon = Weapon
-    def attack (self, dinosaur):
+        self.health = health
+        self.active_weapon = Weapon('Ion Phaser', 5)
+    def attack (self, opponent):
+        opponent.health -= self.active_weapon.attack_power
         pass
-
-
-Weapon('Phaser Gun', 60)
