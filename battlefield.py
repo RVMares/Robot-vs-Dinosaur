@@ -9,8 +9,8 @@ class Battlefield:
 
     def run_game(self):
         self.display_welcome()
-        self.battle_phase()
-        #self.display_winner()
+        winner = self.battle_phase()
+        self.display_winner(winner)
         pass
 
     def display_welcome(self):
@@ -18,8 +18,11 @@ class Battlefield:
         fight_bet = input('Place your bets! Who will win? Robot or Dinosaur? ').lower()
         if fight_bet == 'robot':
             print(f'You have chosen {self.robot_contender.name} as your champion!')
-        else:
+        elif fight_bet == 'dinosaur':
             print(f'You have chosen {self.dinosaur_contender.name} as your champion!')
+        else:
+            print('That contender isn\'t on the list for today, choose again!')
+            self.display_welcome()
         print('Grab your popcorn, because this is about to get good!')
         return fight_bet
         pass
@@ -34,15 +37,17 @@ class Battlefield:
             print(f'{self.dinosaur_contender.name} attacks {self.robot_contender.name}')
             self.dinosaur_contender.attack(self.robot_contender)
             print(f'{self.robot_contender.name}\'s health points: {self.robot_contender.health}')
-        if self.robot_contender.health == 0:
+        if self.robot_contender.health <= 0:
             the_winner = self.dinosaur_contender
             return the_winner
-        elif self.dinosaur_contender.health == 0:
+        elif self.dinosaur_contender.health <= 0:
             the_winner = self.robot_contender
             return the_winner
+        return the_winner
         pass
     
-    def display_winner(self):
-        print(f'And the winner is ... Drumroll Please! ... {self.battle_phase.the_winner}')
+    def display_winner(self, winner_obj):
+        the_winner = self.battle_phase.the_winner
+        print(f'And the winner is ... Drumroll Please! ... {winner_obj.name}')
         pass
 
