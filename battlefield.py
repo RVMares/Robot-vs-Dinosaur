@@ -37,13 +37,11 @@ class Battlefield:
             print(f'{self.dinosaur_contender.name} attacks {self.robot_contender.name}')
             self.dinosaur_contender.attack(self.robot_contender)
             print(f'{self.robot_contender.name}\'s health points: {self.robot_contender.health}')
-        if self.robot_contender.health == 0:
-            the_winner = self.dinosaur_contender
-            return the_winner
-        elif self.dinosaur_contender.health == 0:
-            the_winner = self.robot_contender
-            return the_winner
-        return the_winner
+        if self.robot_contender.health <= 0:
+            return self.dinosaur_contender
+        elif self.dinosaur_contender.health <= 0:
+            return self.robot_contender
+
         pass
     
     def display_winner(self, winner):
