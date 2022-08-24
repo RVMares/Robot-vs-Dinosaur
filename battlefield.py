@@ -28,6 +28,7 @@ class Battlefield:
             print(' ')
             self.display_welcome()
         print('Grab your popcorn, because this is about to get good!')
+        print (' ')
         return fight_bet
         pass
 
